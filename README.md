@@ -15,10 +15,14 @@ In order to set up the necessary environment:
     ```
     source `poetry env info --path`/bin/activate
     ```
+    or just run
+    ```
+    poetry run python your_script.py
+    ```
 
 Optional and needed only once after `git clone`:
 
-4. install several (pre-commit) git hooks with:
+3. install several (pre-commit) git hooks with:
     ```
     pre-commit install
     ```
