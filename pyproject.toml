@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "dstk"
+name = "dsxt"
 version = "0.0.1"
-description = "Data Science Toolkit"
+description = "Data Science Extensions"
 authors = ["tripl3a <34123487+tripl3a@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]

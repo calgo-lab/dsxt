@@ -1,7 +1,7 @@
-Data Science Toolkit
-====================
+Data Science Extensions
+=======================
 
-A collection of tools/extension for data science.
+A collection of tools/extensions for data science.
 
 Installation of Python environment
 ----------------------------------

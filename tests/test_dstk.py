@@ -1,4 +1,4 @@
-from dstk import __version__
+from dsxt import __version__
 
 
 def test_version():

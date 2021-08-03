@@ -2,7 +2,7 @@ from contextlib import contextmanager
 
 import pandas as pd
 import pytest
-from dstk.threshold import (ThresholdClassifier,
+from dsxt.threshold import (ThresholdClassifier,
                             threshold_of_best_recall_at_precison)
 from numpy.testing import assert_array_equal
 from sklearn.base import BaseEstimator, ClassifierMixin
