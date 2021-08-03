@@ -1,10 +1,8 @@
-Data Science Extensions
-=======================
+# Data Science Extensions
 
 A collection of tools/extensions for data science.
 
-Installation of Python environment
-----------------------------------
+## Installation of Python environment
 
 In order to set up the necessary environment:
 
@@ -20,7 +18,7 @@ In order to set up the necessary environment:
 
 Optional and needed only once after `git clone`:
 
-4. install several [pre-commit] git hooks with:
+4. install several (pre-commit) git hooks with:
     ```
     pre-commit install
     ```
