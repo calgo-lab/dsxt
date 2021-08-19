@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dsxt"
-version = "0.0.2"
+version = "0.0.3"
 description = "Data Science Extensions"
 authors = ["tripl3a <34123487+tripl3a@users.noreply.github.com>"]
 

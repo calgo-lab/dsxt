@@ -2,8 +2,7 @@ from contextlib import contextmanager
 
 import pandas as pd
 import pytest
-from dsxt.threshold import (ThresholdClassifier,
-                            threshold_of_best_recall_at_precison)
+from dsxt.threshold import ThresholdClassifier, threshold_at_precison
 from numpy.testing import assert_array_equal
 from sklearn.base import BaseEstimator, ClassifierMixin
 
@@ -24,9 +23,9 @@ def does_not_raise():
         ([1, 0, 1], [0.7, 0.7, 0.7], 1, [], does_not_raise())
     ]
 )
-def test_threshold_of_best_recall_at_precison(y_true, probas_pred, precision_constraint, expected_result, expected_exception):
+def test_threshold_at_precison(y_true, probas_pred, precision_constraint, expected_result, expected_exception):
     with expected_exception:
-        assert_array_equal(threshold_of_best_recall_at_precison(y_true, probas_pred, precision_constraint), expected_result)
+        assert_array_equal(threshold_at_precison(y_true, probas_pred, precision_constraint), expected_result)
 
 
 class DummyClassifier(BaseEstimator, ClassifierMixin):

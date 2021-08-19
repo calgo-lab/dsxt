@@ -3,7 +3,6 @@
 
 from typing import List
 
-import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator, ClassifierMixin, MetaEstimatorMixin
 from sklearn.metrics import precision_recall_curve
@@ -44,26 +43,21 @@ class ThresholdClassifier(BaseEstimator, ClassifierMixin, MetaEstimatorMixin):
         return class_labels
 
 
-def threshold_of_best_recall_at_precison(
-    y_true: List[int], probas_pred: List[float], precision_constraint: float = 0.8
+def threshold_at_precison(
+    y_true: List[int], probas_pred: List[float], precision_threshold: float = 0.8
 ) -> float:
-    """Find the threshold associated with the max. recall given a min. precision of `precision_constraint`,
+    """Find the threshold given a min. precision of `precision_threshold`,
     based on `sklearn.metrics.precision_recall_curve(y_true, probas_pred)`.
 
     Args:
         y_true: True binary labels, either {-1, 1} or {0, 1}.
         probas_pred: Estimated probabilities or output of a decision function.
-        precision_constraint: Minimum precision to be reached.
+        precision_threshold: Minimum precision to be reached.
 
     Returns:
         float: threshold value
     """
-    precision, recall, thresholds = precision_recall_curve(y_true, probas_pred)
+    precision, _, thresholds = precision_recall_curve(y_true, probas_pred)
 
-    best_recall_at_precision = np.max(recall[precision >= precision_constraint])
-    best_precision_at_recall = np.max(precision[recall >= best_recall_at_precision])
-    best_threshold = thresholds[
-        (recall[:-1] == best_recall_at_precision) &
-        (precision[:-1] == best_precision_at_recall)
-    ]
-    return best_threshold
+    precision_above = (precision >= precision_threshold).nonzero()[0][0]
+    return thresholds[min(precision_above, len(thresholds)-1)]
